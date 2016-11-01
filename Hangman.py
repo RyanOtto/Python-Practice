@@ -19,7 +19,7 @@ while gameFinished is False:
 
     if guessedLetter in lettersGuessed:
         print("You've already guessed  '", guessedLetter,"'")
-    if len(guessedLetter) > 1 or guessedLetter.isalpha() is False:
+    elif len(guessedLetter) > 1 or guessedLetter.isalpha() is False:
         print("Invalid input.  Please enter a single letter as a guess.")
     else:
         if guessedLetter in currentWord:
