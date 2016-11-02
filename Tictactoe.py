@@ -14,7 +14,6 @@ ticTacToeVisual = [['', '', ''],
 gameOutcome = ""
 gameFinished = False
 
-# Draw a game board
 def drawboard():
         for i in range(3):
             if ticTacToeList[i][0] == 1:
@@ -45,14 +44,13 @@ def drawboard():
 
 while gameFinished is False:
     drawboard()
-    playerOneRow = -1
-    playerOneColumn = -1
+    playerOneChoice = [-1, -1]
+    playerTwoChoice = [-1, -1]
 
-    while(playerOneRow < 0 or playerOneRow > 2 or playerOneColumn < 0 or playerOneColumn > 2 ):
+    while int(playerOneChoice[0]) < 0 or int(playerOneChoice[0]) > 2 or int(playerOneChoice[1]) < 0 or int(playerOneChoice[1]) > 2:
         print("Please enter a valid set of coordinates on the board from 0-2 for both column and row")
-        playerOneRow = int(input("\nPlayer 1: Select a row "))
-        playerOneColumn = int(input("\nPlayer 1: Select a column "))
-    ticTacToeList[playerOneRow][playerOneColumn] = 1
+        playerOneChoice = str(input("\nPlayer 1: Select a row and column, separated by a space (IE 1 1): ")).split(" ")
+    ticTacToeList[int(playerOneChoice[0])][int(playerOneChoice[1])] = 1
 
     for i in range(3):
         # Vertical win
@@ -70,14 +68,10 @@ while gameFinished is False:
 
     drawboard()
     if gameFinished is False:
-        playerTwoRow = -1
-        playerTwoColumn = -1
-        while (playerTwoRow < 0 or playerTwoRow > 2 or playerTwoColumn < 0 or playerTwoColumn > 2):
+        while int(playerTwoChoice[0]) < 0 or int(playerTwoChoice[0]) > 2 or int(playerTwoChoice[1]) < 0 or int(playerTwoChoice[1]) > 2:
             print("Please enter a valid set of coordinates on the board from 0-2 for both column and row")
-            playerTwoRow = int(input("\nPlayer 2: Select a row "))
-            playerTwoColumn = int(input("\nPlayer 2: Select a column "))
-        ticTacToeList[playerTwoRow][playerTwoColumn] = 2
-
+            playerTwoChoice = str(input("\nPlayer 2: Select a row and column, separated by a space (IE 1 1): ")).split(" ")
+        ticTacToeList[int(playerTwoChoice[0])][int(playerTwoChoice[1])] = 2
 
     for i in range(3):
         # Vertical win
