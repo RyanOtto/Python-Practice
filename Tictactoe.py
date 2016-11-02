@@ -1,6 +1,6 @@
 # Simulate a game of Tic Tac Toe
-#TODO: Don't allow out-of-range input or letters or negative numbers.
-#TODO: Test possible win conditions to ensure accuracy.
+#TODO: Don't allow player to choose a spot already filled
+#TODO: Don't let player type in letters
 from shutil import get_terminal_size
 
 # 0 means unoccupied space, 1 and 2 mean occupied by the players.
@@ -45,8 +45,13 @@ def drawboard():
 
 while gameFinished is False:
     drawboard()
-    playerOneRow = int(input("\nPlayer 1: Select a row "))
-    playerOneColumn = int(input("\nPlayer 1: Select a column "))
+    playerOneRow = -1
+    playerOneColumn = -1
+
+    while(playerOneRow < 0 or playerOneRow > 2 or playerOneColumn < 0 or playerOneColumn > 2 ):
+        print("Please enter a valid set of coordinates on the board from 0-2 for both column and row")
+        playerOneRow = int(input("\nPlayer 1: Select a row "))
+        playerOneColumn = int(input("\nPlayer 1: Select a column "))
     ticTacToeList[playerOneRow][playerOneColumn] = 1
 
     for i in range(3):
@@ -65,9 +70,14 @@ while gameFinished is False:
 
     drawboard()
     if gameFinished is False:
-        playerTwoRow = int(input("\nPlayer 2: Select a row "))
-        playerTwoColumn = int(input("\nPlayer 2: Select a column "))
+        playerTwoRow = -1
+        playerTwoColumn = -1
+        while (playerTwoRow < 0 or playerTwoRow > 2 or playerTwoColumn < 0 or playerTwoColumn > 2):
+            print("Please enter a valid set of coordinates on the board from 0-2 for both column and row")
+            playerTwoRow = int(input("\nPlayer 2: Select a row "))
+            playerTwoColumn = int(input("\nPlayer 2: Select a column "))
         ticTacToeList[playerTwoRow][playerTwoColumn] = 2
+
 
     for i in range(3):
         # Vertical win
