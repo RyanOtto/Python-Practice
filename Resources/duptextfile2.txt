@@ -1,0 +1,10 @@
+This is a test
+Of my duplicates file
+to ensure the fileoverlapchecker
+is is is working properly
+
+1.2
+1.2
+1.3
+
+stuff
