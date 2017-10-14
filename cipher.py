@@ -16,10 +16,10 @@ while 1:
 
 #Print out the new string after running through the cipher
 for letter in word.lower():
-    if letter != ' ':
+    if letter.isalpha():
         try:
             print(alphabet[alphabet.index(letter)+key], end="")
         except:
             print(alphabet[alphabet.index(letter)+key-26], end="")
     else:
-        print(' ',end="")
+        print(' ', end="")
