@@ -5,6 +5,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="Powerball.secondDrum" />
+          <option value="Snake.K_ESCAPE" />
         </list>
       </option>
     </inspection_tool>
